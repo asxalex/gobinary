@@ -3,7 +3,7 @@ gobinary
 package for binary header in go.
 
 ## install
-go get github.com/asxalex/gobinary
+`go get github.com/asxalex/gobinary`
 
 ## usage
 ```go
