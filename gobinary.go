@@ -56,6 +56,15 @@ func (h *Header) FromBinary(b []byte) error {
 	return nil
 }
 
+func (h *Header) GetValue(field string) (uint32, bool) {
+	h.Mu.RLock()
+	defer h.Mu.RUnlock()
+	if v, ok := h.BitMap[field]; ok {
+		return v.Value, true
+	}
+	return 0, false
+}
+
 func (h *Header) ToBinary() []byte {
 	h.Mu.RLock()
 	defer h.Mu.RUnlock()
